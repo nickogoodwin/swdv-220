@@ -65,8 +65,10 @@ CREATE TABLE
         FOREIGN KEY (borrowerID) REFERENCES borrowers(id)
     );
 
+CREATE LOGIN diskUserNG WITH PASSWORD = 'p@55w0rd';
+
 DROP USER IF EXISTS diskUserNG;
 
-CREATE USER diskUserNG WITH PASSWORD = 'pa55word';
+CREATE USER diskUserNG FOR LOGIN diskUserNG;
 
 GRANT SELECT TO diskUserNG;
